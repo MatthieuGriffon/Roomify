@@ -8,9 +8,15 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        "anonymous-pro": ['"Anonymous Pro"', "monospace"],
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+      },
+      container: {
+        padding: "1%",
       },
     },
   },

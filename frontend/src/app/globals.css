@@ -1,21 +1,119 @@
+/* Import des bases Tailwind */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Reset CSS */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html,
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+
+/* Définition des couleurs globales */
+:root {
+  --background: #ffffff; /* Fond blanc (clair) */
+  --foreground: #171717; /* Texte sombre (clair) */
+  --primary: #1d4ed8; /* Bleu primaire */
+  --secondary: #fbbf24; /* Doré secondaire */
+  --muted: #9ca3af; /* Gris pour le texte secondaire */
+  --font-roboto-mono: "Roboto Mono", monospace;
+  --font-anonymous-pro: "Anonymous Pro", monospace;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply text-foreground bg-background antialiased;
+  font-family: var(--font-roboto-mono);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-anonymous-pro); /* Utiliser Anonymous Pro pour les titres */
+}
+
+/* Déclarer les classes personnalisées avec @layer */
+@layer utilities {
+  .bg-primary {
+    background-color: var(--primary);
+  }
+  .text-primary {
+    color: var(--primary);
+  }
+  .bg-secondary {
+    background-color: var(--secondary);
+  }
+  .text-secondary {
+    color: var(--secondary);
+  }
+  .text-muted {
+    color: var(--muted);
+  }
+  .button-primary {
+    @apply bg-primary text-white font-semibold py-2 px-4 rounded hover:bg-blue-600;
+  }
+  .card {
+    @apply bg-white shadow-md rounded-lg p-4;
+  }
+}
+
+/* Bouton principal */
+@layer components {
+  .button-primary {
+    @apply bg-primary text-white font-semibold py-2 px-4 rounded hover:bg-blue-600;
+  }
+}
+
+
+/* Liens et icônes */
+a {
+  @apply text-foreground no-underline hover:underline hover:underline-offset-4;
+}
+
+.material-icons {
+  @apply text-foreground;
 }
