@@ -1,0 +1,44 @@
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    ports:
+      - "5173:3000"  # Port externe 5173 vers interne 3000
+    volumes:
+      - ./frontend:/app
+    command: npm run dev
+    environment:
+      - NODE_ENV=development
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3001:3000"  # Port externe 3001 vers interne 3000
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    command: npm run start:dev
+    environment:
+      - NODE_ENV=development
+      - DATABASE_URL=postgres://roomify_user:roomify_password@db:5432/roomify_db
+    depends_on:
+      - db
+
+  db:
+    image: postgres:17.2  # Version actuelle de PostgreSQL
+    container_name: roomify-db
+    restart: always
+    environment:
+      POSTGRES_USER: roomify_user
+      POSTGRES_PASSWORD: roomify_password
+      POSTGRES_DB: roomify_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

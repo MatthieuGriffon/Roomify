@@ -1,0 +1,15 @@
+# Utiliser l'image Node.js officielle
+FROM node:16-alpine
+
+# Définir le répertoire de travail
+WORKDIR /app
+
+# Installer les dépendances
+COPY package*.json ./
+RUN npm install
+
+# Copier le code source
+COPY . .
+
+# Lancer le serveur de développement avec NestJS
+CMD ["npm", "run", "start:dev"]
