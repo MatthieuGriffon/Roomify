@@ -4,7 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faGlobe,
   faUser,
   faBars,
   faTimes,
@@ -14,10 +13,10 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="w-full text-background font-anonymous-pro z-10 relative">
+    <nav className="w-full text-background font-anonymous-pro z-10 relative m-[1rem">
       <div className="container-header w-full mx-auto flex justify-between items-center py-4">
         {/* Logo + Lien Roomify */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 ml-2">
           <Image
             src="/img/logo_roomify.webp"
             alt="Roomify Logo"
@@ -25,19 +24,18 @@ export default function Navbar() {
             height={50}
             priority
           />
-          <Link
-            href="/"
+          <h1
             className="text-roomify text-background font-bold tracking-wide"
           >
             ROOMIFY
-          </Link>
+          </h1>
         </div>
 
-        <div className="flex w-auto justify-evenly flex-wrap max-[700px]:w-40">
+        <div className="flex w-auto justify-evenly flex-wrap max-[700px]:w-40 p-2">
           {/* Section Burger */}
-          <div className="tablet:hidden flex items-center gap-4">
+          <div className="tablet:hidden flex items-center px-5">
             <button
-              className="text-white text-3xl"
+              className="text-white text-3xl px-3"
               onClick={() => setMenuOpen(!menuOpen)}
             >
               <FontAwesomeIcon icon={menuOpen ? faTimes : faBars} />
@@ -51,7 +49,7 @@ export default function Navbar() {
                 <li>
                   <Link
                     href="/"
-                    className="text-decoration-none block text-white text-center transition-all duration-1000 relative hover:bg-muted hover:px-[50vw] hover:-mx-[25vw]"
+                    className="text-decoration-none block text-white text-center transition-all duration-1000 relative hover:bg-muted hover:px-[1vw] hover:-mx-[25vw]"
                     style={{ textDecoration: "none" }}
                     onClick={() => setMenuOpen(false)}
                   >
@@ -61,7 +59,7 @@ export default function Navbar() {
                 <li>
                   <Link
                     href="/find"
-                    className="block text-white text-center transition-all duration-1000 relative no-underline hover:bg-muted hover:px-[50vw] hover:-mx-[25vw]"
+                    className="block text-white text-center transition-all duration-1000 relative no-underline hover:bg-muted hover:px-[1vw] hover:-mx-[25vw]"
                     style={{ textDecoration: "none" }}
                     onClick={() => setMenuOpen(false)}
                   >
@@ -71,7 +69,7 @@ export default function Navbar() {
                 <li>
                   <Link
                     href="/about_us"
-                    className="block text-white text-center transition-all duration-1000 relative no-underline hover:bg-muted hover:px-[50vw] hover:-mx-[25vw]"
+                    className="block text-white text-center transition-all duration-1000 relative no-underline hover:bg-muted hover:px-[1vw] hover:-mx-[25vw]"
                     style={{ textDecoration: "none" }}
                     onClick={() => setMenuOpen(false)}
                   >
@@ -81,7 +79,7 @@ export default function Navbar() {
                 <li>
                   <Link
                     href="/contact"
-                    className="block text-white text-center transition-all duration-1000 relative no-underline hover:bg-muted hover:px-[50vw] hover:-mx-[25vw]"
+                    className="block text-white text-center transition-all duration-1000 relative no-underline hover:bg-muted hover:px-[1vw] hover:-mx-[25vw]"
                     style={{ textDecoration: "none" }}
                     onClick={() => setMenuOpen(false)}
                   >
@@ -93,11 +91,20 @@ export default function Navbar() {
           )}
 
           {/* Liens Principaux (Desktop) */}
-          <ul className="hidden tablet:flex gap-8 items-center">
+          <ul className="hidden tablet:flex gap items-center ">
             <li>
               <Link
                 href="/"
-                className="text-white  hover:text-primary transition"
+                className="
+                    relative text-white text-xl font-semibold tracking-wide 
+                    text-lg tablet:text-base laptopSmall:text-xl desktop:text-2xl
+                    transition-all duration-300
+                    hover:bg-muted hover:text-black 
+                    px-2 py-1 rounded-lg
+                    before:absolute before:bottom-0 before:left-0 
+                    before:w-0 before:h-[2px] before:bg-primary 
+                    before:transition-all before:duration-300 hover:before:w-0"
+                style={{ textDecoration: "none" }}
               >
                 Accueil
               </Link>
@@ -105,7 +112,16 @@ export default function Navbar() {
             <li>
               <Link
                 href="/find"
-                className="text-white hover:text-primary transition"
+                className="
+                   relative text-white text-xl font-semibold tracking-wide 
+                   text-lg tablet:text-base laptopSmall:text-xl desktop:text-2xl
+                   transition-all duration-300
+                   hover:bg-muted hover:text-black 
+                   px-2 py-1 rounded-lg
+                   before:absolute before:bottom-0 before:left-0 
+                   before:w-0 before:h-[2px] before:bg-primary 
+                   before:transition-all before:duration-300 hover:before:w-0"
+                style={{ textDecoration: "none" }}
               >
                 Rechercher
               </Link>
@@ -113,7 +129,16 @@ export default function Navbar() {
             <li>
               <Link
                 href="/about_us"
-                className="text-white hover:text-primary transition"
+                className="
+                 relative text-white text-xl font-semibold tracking-wide 
+                 text-lg tablet:text-base laptopSmall:text-xl desktop:text-2xl
+                 transition-all duration-300
+                 hover:bg-muted hover:text-black 
+                 px-2 py-1 rounded-lg
+                 before:absolute before:bottom-0 before:left-0 
+                 before:w-0 before:h-[2px] before:bg-primary 
+                 before:transition-all before:duration-300 hover:before:w-0"
+                style={{ textDecoration: "none" }}
               >
                 À propos
               </Link>
@@ -121,21 +146,36 @@ export default function Navbar() {
             <li>
               <Link
                 href="/contact"
-                className="text-white hover:text-primary transition"
+                className="
+                   relative text-white text-xl font-semibold tracking-wide 
+                   text-lg tablet:text-base laptopSmall:text-xl desktop:text-2xl
+                   transition-all duration-300
+                   hover:bg-muted hover:text-black 
+                   px-2 py-1 rounded-lg
+                   before:absolute before:bottom-0 before:left-0 
+                   before:w-0 before:h-[2px] before:bg-primary 
+                   before:transition-all before:duration-300 hover:before:w-0"
+                style={{ textDecoration: "none" }}
               >
                 Contact
               </Link>
             </li>
           </ul>
 
-          {/* Barre de Recherche (Desktop) */}
-          <div className="hidden tablet:flex items-center gap-4 flex-auto max-w-lg mx-4">
+          {/* Barre de Recherche (Desktop uniquement au-dessus de 1920px) */}
+          <div className="hidden desktop:flex items-center gap-4 flex-auto max-w-lg mx-4">
             <div className="relative w-full">
               <input
                 type="text"
-                className="w-full rounded-full border text-white border-neutral-200 px-4 py-2 text-sm laptopSmall:text-base laptop:text-lg placeholder:text-neutral-500 outline-none focus:ring-2 focus:ring-primary focus:border-primary bg-black/50 dark:border-neutral-600 dark:placeholder:text-neutral-300"
-                placeholder="Trouver une destination"
-              />
+                className="
+                  w-full rounded-full border text-white 
+                  border-neutral-200 px-4 py-2 
+                  text-sm desktop:text-lg
+                  placeholder:text-neutral-500 outline-none
+                  focus:ring-2 focus:ring-primary focus:border-primary 
+                  bg-black/50 dark:border-neutral-600 dark:placeholder:text-neutral-300"
+                          placeholder="Trouver une destination"
+                        />
               <button className="absolute right-2 top-1/2 -translate-y-1/2 text-white">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -156,29 +196,19 @@ export default function Navbar() {
           </div>
 
           {/* Icône Connexion en dessous de 1229px */}
-          <div className="laptopSmall:hidden flex items-center cursor-pointer">
+          <div className="laptopSmall:hidden flex items-center cursor-pointer gap-20">
             <FontAwesomeIcon icon={faUser} className="text-white w-6 h-6" />
           </div>
 
-          {/* Icône Langue (Desktop uniquement) */}
-          <div className="tablet:flex items-center gap-2 cursor-pointer">
-            <FontAwesomeIcon
-              icon={faGlobe}
-              className="text-white w-5 h-5 tablet:w-6 tablet:h-6 laptopSmall:w-7 laptopSmall:h-7"
-            />
-            <span className="text-white font-semibold text-sm tablet:text-base laptopSmall:text-lg">
-              FR
-            </span>
-          </div>
         </div>
 
         {/* Boutons Authentification (Desktop uniquement à partir de 1230px) */}
-        <div className="hidden laptopSmall:flex gap-4">
+        <div className="hidden laptopSmall:flex">
           <button className="button text-sm tablet:text-base px-4 py-1 tablet:px-6 tablet:py-2 font-bold rounded-l-2xl border">
             S&apos;inscrire
           </button>
 
-          <button className="button text-sm tablet:text-base px-4 py-1 tablet:px-6 tablet:py-2 font-bold rounded-r-2xl bg-white text-black border">
+          <button className=" mr-2 button text-sm tablet:text-base px-4 py-1 tablet:px-6 tablet:py-2 font-bold rounded-r-2xl bg-white text-black border">
             Se connecter
           </button>
         </div>

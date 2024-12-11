@@ -2,11 +2,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 @layer base {
-  a {
-    @apply no-underline;
+  .absolute-image {
+    @apply absolute top-0 left-0 w-full h-[25vh];
   }
 }
+
 a:hover { /* Exemple de couleur personnalisée */
   text-decoration: none; /* Assurez-vous qu'il reste sans soulignement */
 }
@@ -126,3 +128,5 @@ a {
 .material-icons {
   @apply text-foreground;
 }
+
+

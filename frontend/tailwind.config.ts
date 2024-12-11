@@ -7,23 +7,24 @@ export default {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    
     extend: {
       fontFamily: {
         "anonymous-pro": ['"Anonymous Pro"', "monospace"],
       },
       screens: {
-        desktop:"1920px",
-        laptop: "1440px",
-        laptopSmall: "1230px",
-        tablet: "920px",
-        smartphone: "700px" // Breakpoint personnalisé
+        smartphone: { max: "699px" },  // Pour les écrans <= 699px
+        tablet: "700px",               // À partir de 700px
+        laptopSmall: "1230px",         // À partir de 1230px
+        laptop: "1440px",              // À partir de 1440px
+        desktop: "1920px",             // À partir de 1920px
       },
       padding: {
         buttonX: "clamp(0.25rem, 1vw, 1rem)",  // Padding horizontal
         buttonY: "clamp(0.25rem, 1vw, 1rem)",   // Padding vertical
       },
       fontSize: {
-        roomify: ["clamp(0.5rem, 4vw, 2rem)", "1.2"], // Police dynamique
+        responsive: ["clamp(0.875rem, 2vw, 1.5rem)", "1.2"], // Police dynamique
       },
       
       colors: {
