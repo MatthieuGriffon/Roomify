@@ -2,7 +2,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@layer base {
+  a {
+    @apply no-underline;
+  }
+}
+a:hover { /* Exemple de couleur personnalisée */
+  text-decoration: none; /* Assurez-vous qu'il reste sans soulignement */
+}
 /* Reset CSS */
 *,
 *::before,
@@ -55,14 +62,13 @@ table {
   border-spacing: 0;
 }
 
-
 /* Définition des couleurs globales */
 :root {
   --background: #ffffff; /* Fond blanc (clair) */
   --foreground: #171717; /* Texte sombre (clair) */
   --primary: #1d4ed8; /* Bleu primaire */
   --secondary: #fbbf24; /* Doré secondaire */
-  --muted: #9ca3af; /* Gris pour le texte secondaire */
+  --muted: #d2cdcd; /* Gris pour le texte secondaire */
   --font-roboto-mono: "Roboto Mono", monospace;
   --font-anonymous-pro: "Anonymous Pro", monospace;
 }
@@ -72,8 +78,12 @@ body {
   font-family: var(--font-roboto-mono);
 }
 
-h1, h2, h3 {
-  font-family: var(--font-anonymous-pro); /* Utiliser Anonymous Pro pour les titres */
+h1,
+h2,
+h3 {
+  font-family: var(
+    --font-anonymous-pro
+  ); /* Utiliser Anonymous Pro pour les titres */
 }
 
 /* Déclarer les classes personnalisées avec @layer */
@@ -107,7 +117,6 @@ h1, h2, h3 {
     @apply bg-primary text-white font-semibold py-2 px-4 rounded hover:bg-blue-600;
   }
 }
-
 
 /* Liens et icônes */
 a {
