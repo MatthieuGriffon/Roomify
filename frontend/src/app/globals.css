@@ -31,6 +31,14 @@ body {
   width: 100vw;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: scroll; /* Active le scroll sans la barre */
+  scrollbar-width: none; /* Firefox */
+  margin: 0;
+  padding: 0;
+}
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
 }
 
 img,
@@ -69,7 +77,7 @@ table {
   --background: #ffffff; /* Fond blanc (clair) */
   --foreground: #171717; /* Texte sombre (clair) */
   --primary: #1d4ed8; /* Bleu primaire */
-  --secondary: #fbbf24; /* Doré secondaire */
+  --secondary: #acaaa5; /* Doré secondaire */
   --muted: #d2cdcd; /* Gris pour le texte secondaire */
   --font-roboto-mono: "Roboto Mono", monospace;
   --font-anonymous-pro: "Anonymous Pro", monospace;

@@ -44,7 +44,7 @@ export default function Navbar() {
 
           {/* Menu Mobile (Affichage Conditionnel) */}
           {menuOpen && (
-            <div className="absolute top-[4rem]  left-0 w-full h-100 bg-black/40 text-white z-50 text-decoration-none ">
+            <div className="absolute top-[3.4rem]  left-0 w-full h-100 bg-black/40 text-white z-50 text-decoration-none ">
               <ul className="flex flex-col items-center text-sm">
                 <li>
                   <Link
