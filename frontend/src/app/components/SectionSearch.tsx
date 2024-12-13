@@ -7,7 +7,7 @@ export function SectionSearch() {
 
   return (
     <>
-      <div className="absolute flex-colum translate-y-[9.8rem] content-evenly flex-wrap m-1 h-auto w-auto bg-white p-2 w-[21rem] rounded-xl shadow-lg z-10">
+      <div className="relative flex-colum translate-y-[9.8rem] content-evenly flex-wrap m-1 h-auto w-auto bg-white p-2 w-[21rem] rounded-xl shadow-lg z-10">
         <div className="flex-col text-sm">
           <label>
             <span className="">Lieu</span>

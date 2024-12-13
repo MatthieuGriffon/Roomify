@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 import { Roboto_Mono, Anonymous_Pro } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/app/components/Navbar";
+import { config } from '@fortawesome/fontawesome-svg-core'
+import '@fortawesome/fontawesome-svg-core/styles.css'
+config.autoAddCss = false
 
 const robotoMono = Roboto_Mono({
   subsets: ["latin"],
